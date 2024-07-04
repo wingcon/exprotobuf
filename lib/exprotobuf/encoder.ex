@@ -107,7 +107,7 @@ defmodule Protobuf.Encoder do
 
       %Field{type: {:msg, module}} when is_atom(module) ->
         if Utils.is_standard_scalar_wrapper(module) do
-          Map.put(module.new, :value, v)
+          Map.put(module.new(), :value, v)
         else
           do_wrap_enum(v, module, defs)
         end
@@ -118,7 +118,7 @@ defmodule Protobuf.Encoder do
     case Enum.to_list(Map.get(defs, module)) do
       [value: %Field{type: {:enum, enum_module}}] ->
         if Utils.is_enum_wrapper(module, enum_module) do
-          Map.put(module.new, :value, v)
+          Map.put(module.new(), :value, v)
         else
           v
         end
