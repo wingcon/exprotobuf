@@ -1,6 +1,6 @@
 defmodule Protobuf.Decoder do
   @moduledoc false
-  use Bitwise, only_operators: true
+  import Bitwise
 
   alias Protobuf.Field
   alias Protobuf.OneOfField
