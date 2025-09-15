@@ -1,6 +1,5 @@
 defmodule Protobuf.Decoder do
   @moduledoc false
-  import Bitwise
 
   alias Protobuf.Field
   alias Protobuf.OneOfField
